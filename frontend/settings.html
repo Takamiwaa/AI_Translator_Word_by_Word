@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - AI Word Translator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-icon">AI</div>
+      <div class="brand-title">AI Word Translator</div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-btn" id="nav-translate">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 8 6 6 6-6"/></svg>
+        <span class="btn-label">Translate</span>
+      </a>
+      <a href="history.html" class="nav-btn" id="nav-history">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        <span class="btn-label">History</span>
+      </a>
+      <a href="settings.html" class="nav-btn active" id="nav-settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span class="btn-label">Settings</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="main-container">
+    <div class="card">
+      <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 24px;">Application Settings</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 600px;">
+        <div class="lang-box">
+          <label class="form-label">Active Theme</label>
+          <select id="settings-theme-select" class="form-select">
+            <option value="dark" selected>Black & White Dark (Default)</option>
+          </select>
+        </div>
+
+        <div class="lang-box">
+          <label class="form-label">Default AI Provider</label>
+          <select id="settings-provider-select" class="form-select">
+            <option value="gemini">Google Gemini</option>
+            <option value="openai">OpenAI (ChatGPT)</option>
+            <option value="claude">Anthropic Claude</option>
+            <option value="deepseek">DeepSeek AI</option>
+            <option value="mistral">Mistral AI</option>
+            <option value="groq">Groq LPU</option>
+            <option value="openrouter">OpenRouter</option>
+            <option value="ollama">Ollama (Local)</option>
+          </select>
+        </div>
+
+        <div class="lang-box">
+          <label class="form-label">Default Model</label>
+          <select id="settings-model-select" class="form-select">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div style="margin-top: 12px;">
+          <button id="btn-save-settings" class="action-btn">Save Preferences</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    AI Word-by-Word Translator &copy; 2026 &bull; Configuration
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>
