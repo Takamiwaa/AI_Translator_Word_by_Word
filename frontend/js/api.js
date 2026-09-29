@@ -1,5 +1,5 @@
 /**
- * API Wrapper for Express backend
+ * API Wrapper for Express backend with safe response parsing
  */
 const API = {
   baseUrl: '/api',
@@ -15,9 +15,19 @@ const API = {
 
     try {
       const res = await fetch(`${this.baseUrl}${endpoint}`, config);
-      const data = await res.json();
+      const rawText = await res.text();
+      let data = {};
+
+      if (rawText && rawText.trim()) {
+        try {
+          data = JSON.parse(rawText);
+        } catch (e) {
+          throw new Error(`Server response error (${res.status}): ${rawText.slice(0, 120)}`);
+        }
+      }
+
       if (!res.ok) {
-        throw new Error(data.error || 'API request failed.');
+        throw new Error(data.error || `Request failed with status ${res.status}`);
       }
       return data;
     } catch (err) {
